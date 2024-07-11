@@ -3,7 +3,8 @@
     public abstract class BaseEnitity
     {
        public int id { get; set; }
-        public DateTime dateodbirth { get; set; }
-        public DateTime datejoind { get; set; }
+          public DateTime datecreat { get; set; } 
+           public DateTime datemodified { get; set; } 
+
     }
 }

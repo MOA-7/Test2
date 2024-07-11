@@ -1,0 +1,91 @@
+﻿@using Microsoft.CodeAnalysis.Scripting
+@model IEnumerable<LeaveTypeVM>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a class="btn btn-success" asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.named)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DefultDays)
+            </th>
+           
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.named)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DefultDays)
+            </td>
+           
+            <td>
+                    <a asp-action="Edit" class="btn btn-warning" asp-route-id="@item.id"> <i class="fa-solid fa-pen-to-square"></i> Edit</a> |
+                    <a asp-action="Details" class="btn btn-info" asp-route-id="@item.id"> <i class="fa-solid fa-circle-info"></i> Details</a> |
+        @*{        <a asp-action="Delete" class="btn btn-danger " asp-route-id="@item.id">Delete</a>
+            }*@
+
+                    <button data-iiid="@item.id" class="btn btn-danger delete" type="button"> <i class="fa-solid fa-trash"></i>Delete </button>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+<form id="formid" asp-action="Delete">
+    <input type="hidden" id="idd" name="id" />
+    
+</form>
+
+@section Scripts {
+    <script>
+
+
+
+        $(function(){
+
+
+            new DataTable('.table');
+
+
+            $('.delete').click(function (e) {
+
+                swal({
+
+
+                    title: "Are you Sue ! ",
+                    Text : "Are you sure delete",
+                    icon : "warning",
+                    buttons : true ,
+                    dangerMode : true
+
+                }).then((confirm) => {
+                    if (confirm) {
+                     //   alert('You said yes');
+                         var btn = $(this);
+                        var id = btn.data("iiid");
+                        $('#idd').val(id);
+                        $('#formid').submit();
+                    }
+                
+                }   )  ;
+            });
+
+            
+        })
+
+    </script>
+}

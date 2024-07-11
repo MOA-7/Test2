@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Test2.Configuration;
 using Test2.Data;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -9,6 +10,10 @@ var connectionString = builder.Configuration.GetConnectionString("DefaultConnect
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(connectionString));
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
+
+
+builder.Services.AddAutoMapper(typeof(MapperConfig));
+
 
 builder.Services.AddDefaultIdentity<Employ>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddEntityFrameworkStores<ApplicationDbContext>();
