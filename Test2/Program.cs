@@ -1,7 +1,9 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Test2.Configuration;
+using Test2.Contract;
 using Test2.Data;
+using Test2.Repository;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,10 +13,18 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(connectionString));
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
-
+//
 builder.Services.AddAutoMapper(typeof(MapperConfig));
 
+builder.Services.AddScoped(typeof(IgenricRepostory<>),typeof(GenricRepostory<>) );
+builder.Services.AddScoped<IleaveRepository,LeaveTypeRepository>();
 
+
+
+
+
+
+////
 builder.Services.AddDefaultIdentity<Employ>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddControllersWithViews();
