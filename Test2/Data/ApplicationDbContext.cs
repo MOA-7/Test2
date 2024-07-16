@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using Test2.Configuration.Enties;
 
 namespace Test2.Data
 {
@@ -8,6 +9,13 @@ namespace Test2.Data
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {
+        }
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            base.OnModelCreating(builder);
+            builder.ApplyConfiguration(new RoleSeedConfiguration());
+            builder.ApplyConfiguration(new UserSeedConfiguration());
+            builder.ApplyConfiguration(new UserRolesseedConfig());
         }
         public DbSet<LeaveType> leaveTypes { get; set; }
         public DbSet<LeaveAllocation> LeaveAllocations { get; set; }

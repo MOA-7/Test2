@@ -1,9 +1,11 @@
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.EntityFrameworkCore;
 using Test2.Configuration;
 using Test2.Contract;
 using Test2.Data;
 using Test2.Repository;
+using Test2.services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -21,11 +23,12 @@ builder.Services.AddScoped<IleaveRepository,LeaveTypeRepository>();
 
 
 
-
+builder.Services.AddTransient<IEmailSender>(s => new mailsender("localhost", 25, "no-reply@leavemangment.com"));
 
 
 ////
 builder.Services.AddDefaultIdentity<Employ>(options => options.SignIn.RequireConfirmedAccount = true)
+    .AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddControllersWithViews();
 

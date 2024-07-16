@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -12,11 +13,12 @@ using Test2.Models;
 
 namespace Test2.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class LeaveTypeController : Controller
     {
         private readonly ApplicationDbContext _context;
         private readonly IMapper _mapper;
-        private readonly IleaveRepository _ileaveRepository;
+        private readonly IleaveRepository _ileaveRepository;  
 
         public LeaveTypeController(ApplicationDbContext context,IMapper mapper , IleaveRepository ileaveRepository)
         {

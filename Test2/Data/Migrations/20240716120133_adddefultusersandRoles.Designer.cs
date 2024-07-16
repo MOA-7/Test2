@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Test2.Data;
 
@@ -11,9 +12,11 @@ using Test2.Data;
 namespace Test2.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240716120133_adddefultusersandRoles")]
+    partial class adddefultusersandRoles
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -269,17 +272,15 @@ namespace Test2.Data.Migrations
                         {
                             Id = "8b54618f-61e6-4a76-ba64-be6209bbff00",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "47122dd4-64c3-4eaa-93ed-b543254d2024",
+                            ConcurrencyStamp = "960c3fb1-4eb4-4ba5-b74d-e1f566412c08",
                             Email = "mohameeda326@gmail.com",
-                            EmailConfirmed = true,
+                            EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "MOHAMEEDA326@GMAIL.COM",
-                            NormalizedUserName = "MOHAMEEDA326@GMAIL.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEJ/fYt9m3kIrrtVjoKsKbKgbvrTywOQqe/l26NRNL4A0zUfoOlrKnMFNpWUCCnNOnA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEATfme/nDNgGTdYKpzcIBqNvlv6NnOHophERFVTIm6nRr0aerolbFF66+b6ygynK5g==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "e71bf544-4dcb-451a-8852-1619267fe6af",
+                            SecurityStamp = "b4e7a04b-b227-43d1-93ed-68b799d2ac08",
                             TwoFactorEnabled = false,
-                            UserName = "mohameeda326@gmail.com",
                             datejoind = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             dateodbirth = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             lastname = "ali raheem",
@@ -289,17 +290,15 @@ namespace Test2.Data.Migrations
                         {
                             Id = "363cfe19-710f-4035-8ffa-0ee5f7da077a",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "bebb588f-7957-4f25-a5fd-d3eb6fa94334",
+                            ConcurrencyStamp = "a8911ee0-d84b-4e5a-86d7-19990a085154",
                             Email = "test@test.com",
-                            EmailConfirmed = true,
+                            EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "TEST@TEST.COM",
-                            NormalizedUserName = "TEST@TEST.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEGUoe2htKG+fgbMpmwdoN2fSBu3supeOqzJk3RdRW4VMQOJ24ftKQMjS/0Cbb88eFg==",
+                            PasswordHash = "AQAAAAIAAYagAAAAELwcviNsmIVbjYCtTYV1qKBGhU4+BrxjhaZInG9JOPsleMLA8IwMv1fOthzbEd5TTw==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "92dfd8e5-0c23-438b-aa5f-10047918eae3",
+                            SecurityStamp = "167de90b-5c59-4f88-ba1b-71d0d2fdcc06",
                             TwoFactorEnabled = false,
-                            UserName = "test@test.com",
                             datejoind = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             dateodbirth = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             lastname = "uest",
