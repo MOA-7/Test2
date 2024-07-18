@@ -19,19 +19,24 @@ namespace Test2.Controllers
         private readonly ApplicationDbContext _context;
         private readonly IMapper _mapper;
         private readonly IleaveRepository _ileaveRepository;  
+        private readonly IleaveAllocationRipository _ileaveAllocationRipository;  
 
-        public LeaveTypeController(ApplicationDbContext context,IMapper mapper , IleaveRepository ileaveRepository)
+
+        public LeaveTypeController(ApplicationDbContext context,IMapper mapper , IleaveRepository ileaveRepository
+            ,IleaveAllocationRipository ileaveAllocationRipository)
         {
             _context = context;
             _mapper = mapper;
             _ileaveRepository = ileaveRepository;
+            _ileaveAllocationRipository = ileaveAllocationRipository;
+
         }
 
         // GET: LeaveType
         public async Task<IActionResult> Index()
         {
 
-            // var LeaveType = _mapper.Map<List<LeaveTypeVM>>(await _context.leaveTypes.ToListAsync());
+             //var LeaveType = _mapper.Map<List<LeaveTypeVM>>(await _context.leaveTypes.ToListAsync());
           //  var LeaveTypes = await _ileaveRepository.GettAll();
              var LeaveType = _mapper.Map<List<LeaveTypeVM>>(await _ileaveRepository.GettAll());
             return View(LeaveType);
@@ -181,6 +186,25 @@ namespace Test2.Controllers
             //  return _context.leaveTypes.Any(e => e.id == id);
             return await _ileaveRepository.Exist(id);
         }
+
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task <IActionResult> AllocateLeave(int id)
+        {
+            await _ileaveAllocationRipository.LeaveAllocation(id);
+            return RedirectToAction (nameof(Index));
+        }
+
+
+
+
+
+
+
+
+
+
     }
 }
     

@@ -33,7 +33,11 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
 						</li>       @if (User.IsInRole("Admin"))
 						{
+
+
                             <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Employee" asp-action="Index">Employes</a>
+                        </li> <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="LeaveType" asp-action="Index">LeaveType</a>
                         </li>
 
@@ -61,7 +65,13 @@
     <script src="~/lib/sweetalert/sweetalert.min.js"></script>
     <script src="https://cdn.datatables.net/2.0.8/js/dataTables.js"></script>
     <script src="https://cdn.datatables.net/2.0.8/js/dataTables.bootstrap5.js"></script>
+    <script >
 
+        $(function () {
+            $('.table').DataTable();
+        });
+
+    </script>
 
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)

@@ -9,6 +9,10 @@ namespace Test2.Configuration
         public MapperConfig() {
 
             CreateMap<LeaveType, LeaveTypeVM>().ReverseMap();
+            CreateMap<Employ, EmployListVM>().ReverseMap();
+            CreateMap<Employ, EmployeAllocationVM>().ReverseMap();
+            CreateMap<LeaveAllocation, LeaveAllocationVM>().ReverseMap();
+            CreateMap<LeaveAllocation, EdirLeaveAllocationVM>().ReverseMap();
         
         }
     }

@@ -1,0 +1,48 @@
+﻿@model IEnumerable<EmployListVM>
+
+@{
+    ViewData["Title"] = "Employeess";
+}
+
+<h1>Employeess</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.firstname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.lastname)
+            </th>   <th>
+                @Html.DisplayNameFor(model => model.Email )
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.datejoind)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.firstname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.lastname)
+            </td>  <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            <td>
+                @Html.DisplayFor(modelItem => item.datejoind)
+            </td>
+            <td>
+                <a asp-action="ViewAllocation" class=" btn btn-primary" asp-route-id="@item.id">View AllocaTion </a> 
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

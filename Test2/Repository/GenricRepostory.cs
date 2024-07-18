@@ -58,7 +58,12 @@ namespace Test2.Repository
             _context.Update(entity);
             await _context.SaveChangesAsync();
         }
+        public async Task AddRangeAsync(List<T> entities)
+        {
+            await _context.AddRangeAsync(entities);
+            await _context.SaveChangesAsync();
 
-        
+        }
+
     }
 }

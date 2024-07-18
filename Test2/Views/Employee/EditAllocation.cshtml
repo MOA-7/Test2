@@ -1,0 +1,37 @@
+﻿@model Test2.Models.EdirLeaveAllocationVM
+
+
+<h1>Edit @Model.LeaveType.named Allocation For @Model.Employee.firstname @Model.Employee.lastname</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="EditAllocation">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="id" />
+            <input type="hidden" asp-for="Employeeid" />
+            <input type="hidden" asp-for="LeaveTypeID" />
+            <div class="form-group">
+                <label asp-for="NumberOfDAYS" class="control-label"></label>
+                <input asp-for="NumberOfDAYS" class="form-control" />
+                <span asp-validation-for="NumberOfDAYS" class="text-danger"></span>
+            </div>
+            <br /> 
+
+            <div class="form-group">
+                <label asp-for="period" class="control-label"></label>
+                <input asp-for="period" class="form-control" />
+                <span asp-validation-for="period" class="text-danger"></span>
+            </div>
+            <br />
+
+            <div class="form-group">
+                <a asp-action="Index" class="btn btn-dark">Back to List</a>&nbsp;
+
+                <input type="submit" asp-action="EditAllocation" value="Save" class="btn btn-primary btn-block" />
+            </div>
+        </form>
+    </div>
+</div>
+
+

@@ -5,6 +5,8 @@
         Task<T> GetAsync(int? id);
         Task<List<T>> GettAll();
         Task<T> AddAsync(T entity);
+        Task AddRangeAsync(List<T> entities);
+
 
         Task<bool> Exist(int id);
         Task DeleteAsync(int id);

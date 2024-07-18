@@ -14,7 +14,7 @@ namespace Test2.Data
 
         public string Employid { get; set; }
 
-
+        public int period { get; set; } 
 
 
 

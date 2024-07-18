@@ -4,5 +4,6 @@ namespace Test2.Contract
 {
     public interface IleaveRepository :IgenricRepostory<LeaveType>
     {
+
     }
 }

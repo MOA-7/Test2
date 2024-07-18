@@ -20,6 +20,10 @@ builder.Services.AddAutoMapper(typeof(MapperConfig));
 
 builder.Services.AddScoped(typeof(IgenricRepostory<>),typeof(GenricRepostory<>) );
 builder.Services.AddScoped<IleaveRepository,LeaveTypeRepository>();
+builder.Services.AddScoped<IleaveAllocationRipository, LeaveAllocationRepository>();
+builder.Services.AddScoped<IleaveAllocationRipository, LeaveAllocationRepository>();
+
+
 
 
 

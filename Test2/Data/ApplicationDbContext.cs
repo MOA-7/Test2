@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Test2.Configuration.Enties;
+using Test2.Models;
 
 namespace Test2.Data
 {
