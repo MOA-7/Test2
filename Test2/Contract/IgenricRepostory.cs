@@ -1,4 +1,6 @@
-﻿namespace Test2.Contract
+﻿using Test2.Models;
+
+namespace Test2.Contract
 {
     public interface IgenricRepostory<T> where T : class
     {

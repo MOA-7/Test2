@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Test2.Data;
 
@@ -11,9 +12,11 @@ using Test2.Data;
 namespace Test2.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240722211534_addLeaveRequestTqble")]
+    partial class addLeaveRequestTqble
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -269,15 +272,15 @@ namespace Test2.Data.Migrations
                         {
                             Id = "8b54618f-61e6-4a76-ba64-be6209bbff00",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "6d901bf3-8809-4d7e-a050-178bad232d74",
+                            ConcurrencyStamp = "5f1161e2-aea5-4721-baa8-0c48527b0c5f",
                             Email = "mohameeda326@gmail.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "MOHAMEEDA326@GMAIL.COM",
                             NormalizedUserName = "MOHAMEEDA326@GMAIL.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEPkYK8a2t+CktzvmCdx2FzAtjJmSisFEpwZVk7eL6AFzGh5px3r/VMHnXrZxLEUlNQ==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEE5ZakbhEdIIMzTga6sCwlZUlrgHy6g8MXw111g6XOjZudAE/DkoAUHGnnsR8uy82A==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "6f7a178d-ef41-4cea-bfcd-b402ec281e10",
+                            SecurityStamp = "6cd089ca-9d00-414a-b50d-b4525f5b85bc",
                             TwoFactorEnabled = false,
                             UserName = "mohameeda326@gmail.com",
                             datejoind = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -289,15 +292,15 @@ namespace Test2.Data.Migrations
                         {
                             Id = "363cfe19-710f-4035-8ffa-0ee5f7da077a",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "f8137ae4-4f57-41e4-8358-27fc59530dd6",
+                            ConcurrencyStamp = "a0e32fef-018b-4a9e-b511-fbca52ba3eb4",
                             Email = "test@test.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "TEST@TEST.COM",
                             NormalizedUserName = "TEST@TEST.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEHZ9p70yEwDYvWnQBIMwKcuDq/7f+G+5DTJnoEfu0DQPNpDJ4iByJu8TDeVmFlMHFQ==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEJaX/X/2PZ7oRTa38xfoDWbX/upqsuwpDaki7UBUxY4/3+ZSWw2lH4sdXqyUTcWPAQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "93c98076-9eb4-4ccb-9434-84787a1a345c",
+                            SecurityStamp = "05b8aeb8-dc12-4866-967b-66740f3e9fc6",
                             TwoFactorEnabled = false,
                             UserName = "test@test.com",
                             datejoind = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -369,6 +372,7 @@ namespace Test2.Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("RequrstComent")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("StartDate")

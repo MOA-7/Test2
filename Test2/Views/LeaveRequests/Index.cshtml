@@ -1,0 +1,148 @@
+﻿@model AdminLeaveRequestVIEWVM
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1 class=" text-center" >Admin Leave Requests View</h1>
+<br>
+
+
+
+<div class="row">
+    <div class="col-3">
+        <div class="card">
+            <div class="card-body text-center">
+                <h1 class="card-title text-primary">@Model.totalRequest </h1>
+                <p class="card-text"> @Html.DisplayNameFor(m => m.totalRequest)  </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-3">
+        <div class="card">
+            <div class="card-body text-center">
+                <h1 class="card-title text-success">@Model.AprovvedRequesr </h1>
+                <p class="card-text"> @Html.DisplayNameFor(m => m.AprovvedRequesr)  </p>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="col-3">
+        <div class="card">
+            <div class="card-body text-center">
+                <h1 class="card-title text-warning">@Model.PendilingRequest </h1>
+                <p class="card-text"> @Html.DisplayNameFor(m => m.PendilingRequest)  </p>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="col-3">
+        <div class="card">
+            <div class="card-body text-center">
+                <h1 class="card-title text-danger">@Model.RejectRequest </h1>
+                <p class="card-text"> @Html.DisplayNameFor(m => m.RejectRequest)  </p>
+            </div>
+        </div>
+    </div>
+
+
+
+
+</div>
+<hr />
+<h1> Leave Request Log</h1>
+<hr />
+
+
+
+
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Employee Name
+            </th>  
+            <th>
+                @Html.DisplayNameFor(model => Model.leaveReqests[0].StartDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => Model.leaveReqests[0].EndDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => Model.leaveReqests[0].LeaveType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => Model.leaveReqests[0].DateRequest)
+            </th>
+         
+            <th>
+                @Html.DisplayNameFor(model => Model.leaveReqests[0].Approve)
+            </th>
+            
+            
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.leaveReqests) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmployListVM.firstname) 
+                @Html.DisplayFor(modelItem => item.EmployListVM.lastname)
+            </td>   
+            <td>
+                @Html.DisplayFor(modelItem => item.StartDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EndDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LeaveType.named)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateRequest)
+            </td>
+          
+
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Approve)
+            </td>
+       
+                <td>
+
+                    @if (item.CDancele)
+                    {
+                        <span class="badge bg-secondary">canceled</span>
+
+                    }
+
+            
+                    else if (item.Approve == true)
+                    {
+                        <span class="badge bg-success">Approved</span>
+                    }
+                    else if (item.Approve == false)
+                    {
+                        <span class="badge bg-danger">Rejected</span>
+                    }
+                    else
+                    {
+                        <span class="badge bg-warning">Pending</span>
+
+                    }
+                </td>
+
+            <td>
+                @if(item.CDancele == false){
+                <a asp-action="Details"  class="btn btn-primary" asp-route-id="@item.id">Review</a> 
+                }
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -35,7 +35,7 @@ namespace Test2.Controllers
             return View(model);
         }
 
-        public  async Task<IActionResult> ViewAllocation(string id)
+        public  async Task<ActionResult> ViewAllocation(string id)
         {
 
             var model = await ileaveAllocationRipository.GetEmployeAllocations(id);
@@ -45,7 +45,7 @@ namespace Test2.Controllers
   
 
         // GET: EmployeeController/Edit/5
-        public async Task<ActionResult> EditAllocation(int id)
+        public async Task<IActionResult> EditAllocation(int id)
         {
             var model = await ileaveAllocationRipository.GetEmployeAllocation(id);
             if (model == null)

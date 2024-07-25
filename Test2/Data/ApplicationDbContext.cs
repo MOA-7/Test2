@@ -20,5 +20,6 @@ namespace Test2.Data
         }
         public DbSet<LeaveType> leaveTypes { get; set; }
         public DbSet<LeaveAllocation> LeaveAllocations { get; set; }
+        public DbSet<LeaveRequest> LeaveRequests { get; set; }
     }
 }

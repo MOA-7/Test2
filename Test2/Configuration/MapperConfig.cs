@@ -13,6 +13,8 @@ namespace Test2.Configuration
             CreateMap<Employ, EmployeAllocationVM>().ReverseMap();
             CreateMap<LeaveAllocation, LeaveAllocationVM>().ReverseMap();
             CreateMap<LeaveAllocation, EdirLeaveAllocationVM>().ReverseMap();
+            CreateMap<LeaveRequest, LeaveReqestCreatVM>().ReverseMap();
+            CreateMap<LeaveRequest, LeaveReqestVM>().ReverseMap();
         
         }
     }

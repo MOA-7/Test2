@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/2.0.8/css/dataTables.bootstrap5.css" />
     <link rel="stylesheet" href="~/lib/font-awesome/css/all.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/lib/font-awesome/css/fontawesome.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.3/themes/base/jquery-ui.css">
 
 
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
@@ -29,16 +30,34 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
+                     
+
+                       @if (User.IsInRole("User"))
+						{  
+                            <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="LeaveRequests" asp-action="Create">Apply For Leave</a>
+                        </li
+                        
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-						</li>       @if (User.IsInRole("Admin"))
+                            <a class="nav-link text-dark" asp-area="" asp-controller="LeaveRequests" asp-action="MyLeave">my Leave</a>
+                        </li>
+                        }
+
+
+   
+                           @if (User.IsInRole("Admin"))
 						{
 
 
                             <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Employee" asp-action="Index">Employes</a>
-                        </li> <li class="nav-item">
+                        </li> 
+                        
+                        <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="LeaveType" asp-action="Index">LeaveType</a>
+                        </li>
+                          <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="LeaveRequests" asp-action="Index">Leave Request</a>
                         </li>
 
                             }
@@ -65,10 +84,15 @@
     <script src="~/lib/sweetalert/sweetalert.min.js"></script>
     <script src="https://cdn.datatables.net/2.0.8/js/dataTables.js"></script>
     <script src="https://cdn.datatables.net/2.0.8/js/dataTables.bootstrap5.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.3/jquery-ui.js"></script>
+
     <script >
 
         $(function () {
             $('.table').DataTable();
+            $(".datepicker").datepicker({
+            });
+
         });
 
     </script>

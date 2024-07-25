@@ -23,9 +23,9 @@ namespace Test2.Repository
             this.mapper = mapper; 
         }
 
-        public async Task<bool> AllocationExist(string employid, int leavetypeid, int period)
+        public async Task<bool> AllocationExist(string employID, int leavetypeid, int period)
         {
-            return await context.LeaveAllocations.AnyAsync(q => q.Employid == employid &&
+            return await context.LeaveAllocations.AnyAsync(q => q.Employid == employID &&
                                                                          q.LeaveTypeid == leavetypeid &&
                                                                          q.period == period
                                                                          );
@@ -33,7 +33,7 @@ namespace Test2.Repository
 
 
 
-        public async Task<EmployeAllocationVM> GetEmployeAllocations(string employID)
+        public async Task<EmployeAllocationVM> GetEmployeAllocations(string employID )
        {
            var Allocation = await context.LeaveAllocations
                .Include(q => q.LeaveType)
@@ -116,6 +116,13 @@ namespace Test2.Repository
             leaveAllocation.NumberOfDAYS = model.NumberOfDAYS;
             await UpdateAsync(leaveAllocation);
             return true;
+        }
+
+        public async Task<LeaveAllocation?> GetEmployeAllocation(string employID, int leavetypeid)
+        {
+           return await context.LeaveAllocations.FirstOrDefaultAsync(q => q.Employid == employID
+                && q.LeaveTypeid == leavetypeid
+            );
         }
     }
 }
